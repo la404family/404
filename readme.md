@@ -1,14 +1,6 @@
-# ⚔️ The Legend Of Turgut ⚔️
+# Le Projet 404
 
-## Le jeu d'aventure en pixel-art
-
-### Présentation
-
-"The Legend of Turgut" est un jeu développé en 🗡️ HTML, 🏹 CSS et 🪓 JavaScript, sans framework ni canvas. Comme un site web classique, il repose entièrement sur le DOM !
-
-Passionné de programmation, j’ai voulu partager avec vous ce projet ludique, qui me permet de coder régulièrement. Après avoir expérimenté avec Phaser.js, Pygame et Unity, j’ai choisi de revenir à une version en pur JavaScript, un langage universel et directement accessible via le navigateur. Mes enfants ont grandement contribué à la conception des graphismes et des animations. Ils ont aussi participé à l’élaboration de l’histoire et des personnages. Initiés très tôt à la programmation, ils ont pu m’aider à développer et tester le jeu.
-
-### LE JEU
+### LE SITE
 
 <p align="center">
 
@@ -17,11 +9,10 @@ A voir ici : [Découvrez-le ici : Le projet 404](https://la404family.github.io/4
 [![Image](./imagesOfReadme/imageTitre.jpg)](https://la404family.github.io/404/)
 
 </p>
-<p align="center">
-    ⬆️---Cliquer sur le lien ou l'image !----⬆️
-</p>
 
 ### Qu'est ce que le projet 404 ?
+
+Le projet 404 est un site web collaboratif, créé par la 404 Family, qui a pour but de rassembler des petits projets en html css et javascript.
 
 ### Nos réseaux sociaux
 
