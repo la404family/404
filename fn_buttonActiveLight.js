@@ -2,7 +2,7 @@
 export function fn_buttonActiveLight(buttonElement) {
     // Récupérer les couleurs du gradient du bouton
     const palette = buttonElement.getAttribute('data-palette');
-    
+
     // Définir les couleurs d'éclairage pour chaque palette
     const lightColors = {
         green: {
@@ -46,7 +46,7 @@ export function fn_buttonActiveLight(buttonElement) {
             border: '#ffaac8'
         }
     };
-    
+
     // Retirer tous les styles actifs des autres boutons
     document.querySelectorAll('.palette-btn').forEach(btn => {
         btn.style.borderColor = '#9e8686';
@@ -54,11 +54,11 @@ export function fn_buttonActiveLight(buttonElement) {
         btn.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.4)';
         btn.style.transform = 'scale(1)';
     });
-    
+
     // Appliquer l'effet LED au bouton actif
     if (lightColors[palette]) {
         const color = lightColors[palette];
-        
+
         // Effet de lumière douce (glow LED)
         buttonElement.style.borderColor = color.border;
         buttonElement.style.borderWidth = '3px';
@@ -70,7 +70,7 @@ export function fn_buttonActiveLight(buttonElement) {
         `;
         buttonElement.style.transform = 'scale(1.15)';
         buttonElement.style.filter = 'brightness(1.3)';
-        
+
         console.log(`💡 LED activée: ${palette} (${color.border})`);
     }
 }
@@ -78,10 +78,10 @@ export function fn_buttonActiveLight(buttonElement) {
 // Fonction pour initialiser l'effet LED sur tous les boutons
 export function initButtonLights() {
     document.querySelectorAll('.palette-btn').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             fn_buttonActiveLight(this);
         });
     });
-    
+
     console.log('💡 Système d\'éclairage LED des boutons initialisé');
 }

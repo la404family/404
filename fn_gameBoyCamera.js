@@ -198,7 +198,7 @@ function changePalette(paletteKey) {
 function updateActiveButton(activeKey) {
     // Récupérer le bouton actif
     const activeButton = document.getElementById(`palette-${activeKey}`);
-    
+
     // Appliquer l'effet LED au bouton actif
     if (activeButton) {
         fn_buttonActiveLight(activeButton);
@@ -209,7 +209,7 @@ function updateActiveButton(activeKey) {
 function initPaletteButtons() {
     // Initialiser le système d'éclairage LED des boutons
     initButtonLights();
-    
+
     // Ajouter les écouteurs d'événements aux boutons
     document.querySelectorAll('.palette-btn').forEach(button => {
         button.addEventListener('click', function () {
