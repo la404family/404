@@ -14,10 +14,14 @@ const matrixChars = [
 
 // Palettes de couleurs pour l'effet Matrix
 const matrixColorPalettes = {
-    green: "#0F0",      // Vert Matrix classique
-    blue: "#0080FF",    // Bleu électrique
-    yellow: "#FFD700",  // Jaune doré
-    red: "#FF4500"      // Rouge orangé
+    green: "#8ccd5f",   // Medium Green - coordonné avec palette caméra
+    blue: "#69b9f0",    // Serenity Blue - coordonné avec palette caméra
+    yellow: "#f5d246",  // Golden Yellow - coordonné avec palette caméra
+    red: "#f07d64",     // Coral Red - coordonné avec palette caméra
+    purple: "#be96eb",  // Wisteria - coordonné avec palette caméra
+    cyan: "#6edce6",    // Aqua - coordonné avec palette caméra
+    orange: "#ffb464",  // Mandarin - coordonné avec palette caméra
+    pink: "#ffaac8"     // Bubblegum - coordonné avec palette caméra
 };
 
 // Variables pour l'effet Matrix

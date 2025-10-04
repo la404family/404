@@ -1,47 +1,90 @@
 // Import de la fonction pour changer la couleur Matrix
 import { changeMatrixColor } from './fn_matrixLetter.js';
+// Import de la fonction pour l'effet LED des boutons
+import { fn_buttonActiveLight, initButtonLights } from './fn_buttonActiveLight.js';
 
-// Définition des palettes de couleurs
+// Palettes de couleurs révisées - Optimisées pour filtre caméra
+// Palettes de couleurs optimisées avec contraste accentué
 const colorPalettes = {
     green: {
         rgb: [
-            [155, 188, 15],  // Couleur de fond claire
-            [139, 172, 15],
-            [48, 98, 48],    // Couleur adjacente
-            [15, 56, 15],
-            [15, 56, 15]     // Couleur cellule principale
+            [210, 245, 130],  // Light Mint - Fond clair (plus lumineux)
+            [140, 205, 95],   // Medium Green - Transition (plus saturé)
+            [65, 155, 80],    // Forest Green - Adjacent (écart amplifié)
+            [30, 95, 50],     // Deep Green - Accent (plus sombre)
+            [12, 40, 25]      // Dark Pine - Cellule principale (très sombre)
         ],
-        hex: ["#9bbc0f", "#8bac0f", "#306230", "#0f380f", "#0f380f"]
+        hex: ["#d2f582", "#8ccd5f", "#419b50", "#1e5f32", "#0c2819"]
     },
     blue: {
         rgb: [
-            [155, 176, 223],  // Couleur de fond claire bleue
-            [139, 160, 207],
-            [48, 98, 144],    // Couleur adjacente bleue
-            [15, 40, 96],
-            [15, 24, 64]      // Couleur cellule principale bleue
+            [185, 230, 255],  // Crystal Blue - Fond clair (plus clair)
+            [105, 185, 240],  // Serenity Blue - Transition (plus vif)
+            [50, 125, 200],   // Azure Blue - Adjacent (contraste renforcé)
+            [25, 75, 145],    // Deep Ocean - Accent (plus profond)
+            [10, 35, 75]      // Midnight Blue - Cellule principale (quasi noir)
         ],
-        hex: ["#9bb0df", "#8ba0cf", "#306290", "#0f2860", "#0f1840"]
+        hex: ["#b9e6ff", "#69b9f0", "#327dc8", "#194b91", "#0a234b"]
     },
     yellow: {
         rgb: [
-            [251, 247, 6],    // Couleur de fond claire jaune #FBF706FF
-            [169, 167, 24],   // #A9A718FF
-            [165, 149, 21],   // Couleur adjacente jaune #A59515FF
-            [92, 91, 15],     // #5C5B0FFF
-            [40, 34, 6]       // Couleur cellule principale jaune #282206FF
+            [255, 250, 150],  // Sunlight - Fond clair (presque blanc)
+            [245, 210, 70],   // Golden Yellow - Transition (plus doré)
+            [200, 160, 35],   // Amber - Adjacent (écart augmenté)
+            [140, 105, 20],   // Honey - Accent (plus terre)
+            [70, 50, 10]      // Bronze - Cellule principale (très sombre)
         ],
-        hex: ["#FBF706FF", "#A9A718FF", "#A59515FF", "#5C5B0FFF", "#282206FF"]
+        hex: ["#fffa96", "#f5d246", "#c8a023", "#8c6914", "#46320a"]
     },
     red: {
         rgb: [
-            [223, 155, 15],   // Couleur de fond claire rouge
-            [207, 139, 15],
-            [144, 48, 48],    // Couleur adjacente rouge
-            [96, 15, 15],
-            [64, 15, 15]      // Couleur cellule principale rouge
+            [255, 195, 185],  // Peach Pink - Fond clair (plus pâle)
+            [240, 125, 100],  // Coral Red - Transition (plus vif)
+            [200, 65, 50],    // Crimson - Adjacent (rouge pur)
+            [140, 30, 30],    // Burgundy - Accent (plus sombre)
+            [70, 15, 18]      // Wine - Cellule principale (presque noir)
         ],
-        hex: ["#df9b0f", "#cf8b0f", "#903030", "#600f0f", "#400f0f"]
+        hex: ["#ffc3b9", "#f07d64", "#c84132", "#8c1e1e", "#460f12"]
+    },
+    purple: {
+        rgb: [
+            [230, 210, 255],  // Lavender - Fond clair (plus lumineux)
+            [190, 150, 235],  // Wisteria - Transition (plus saturé)
+            [145, 90, 195],   // Royal Purple - Adjacent (contraste fort)
+            [90, 45, 140],    // Deep Purple - Accent (plus profond)
+            [45, 22, 70]      // Midnight Purple - Cellule principale (très sombre)
+        ],
+        hex: ["#e6d2ff", "#be96eb", "#915ac3", "#5a2d8c", "#2d1646"]
+    },
+    cyan: {
+        rgb: [
+            [180, 250, 255],  // Sky Light - Fond clair (plus éclatant)
+            [110, 220, 230],  // Aqua - Transition (plus vif)
+            [50, 175, 180],   // Teal - Adjacent (écart renforcé)
+            [20, 110, 115],   // Deep Sea - Accent (plus foncé)
+            [10, 55, 60]      // Abyssal - Cellule principale (presque noir)
+        ],
+        hex: ["#b4faff", "#6edce6", "#32afb4", "#146e73", "#0a373c"]
+    },
+    orange: {
+        rgb: [
+            [255, 225, 180],  // Peach Light - Fond clair
+            [255, 180, 100],  // Mandarin - Transition
+            [230, 125, 40],   // Tangerine - Adjacent
+            [170, 75, 15],    // Burnt Orange - Accent
+            [85, 40, 8]       // Deep Rust - Cellule principale
+        ],
+        hex: ["#ffe1b4", "#ffb464", "#e67d28", "#aa4b0f", "#552808"]
+    },
+    pink: {
+        rgb: [
+            [255, 220, 230],  // Rose Petal - Fond clair
+            [255, 170, 200],  // Bubblegum - Transition
+            [235, 100, 150],  // Hot Pink - Adjacent
+            [180, 50, 100],   // Magenta - Accent
+            [90, 25, 50]      // Deep Rose - Cellule principale
+        ],
+        hex: ["#ffdce6", "#ffaac8", "#eb6496", "#b43264", "#5a1932"]
     }
 };
 
@@ -151,22 +194,22 @@ function changePalette(paletteKey) {
     }
 }
 
-// Fonction pour mettre à jour le bouton actif
+// Fonction pour mettre à jour le bouton actif avec effet LED
 function updateActiveButton(activeKey) {
-    // Retirer la classe active de tous les boutons
-    document.querySelectorAll('.palette-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    // Ajouter la classe active au bouton sélectionné
+    // Récupérer le bouton actif
     const activeButton = document.getElementById(`palette-${activeKey}`);
+    
+    // Appliquer l'effet LED au bouton actif
     if (activeButton) {
-        activeButton.classList.add('active');
+        fn_buttonActiveLight(activeButton);
     }
 }
 
 // Fonction pour initialiser les boutons de palette
 function initPaletteButtons() {
+    // Initialiser le système d'éclairage LED des boutons
+    initButtonLights();
+    
     // Ajouter les écouteurs d'événements aux boutons
     document.querySelectorAll('.palette-btn').forEach(button => {
         button.addEventListener('click', function () {
@@ -175,8 +218,8 @@ function initPaletteButtons() {
         });
     });
 
-    // Marquer le bouton vert comme actif par défaut
+    // Activer le bouton vert avec effet LED par défaut
     updateActiveButton('green');
 
-    console.log('🎮 Boutons de palette initialisés');
+    console.log('🎮 Boutons de palette initialisés avec effet LED');
 }

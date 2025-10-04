@@ -75,50 +75,85 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.palette-btn.active {
-  border-color: #ffff00;
-  border-width: 5px;
-  box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
-  transform: scale(1.15);
-}
+/* L'effet LED actif est géré dynamiquement par fn_buttonActiveLight.js */
 
 /* Gradients radiaux pour les boutons ronds */
 .palette-green {
   background: radial-gradient(
     circle,
-    #bee418 0%,
-    #8bac0f 30%,
-    #306230 60%,
-    #0f380f 100%
+    #d2f582 0%,
+    #8ccd5f 30%,
+    #419b50 60%,
+    #0c2819 100%
   );
 }
 
 .palette-blue {
   background: radial-gradient(
     circle,
-    #9bb0df 0%,
-    #8ba0cf 30%,
-    #306290 60%,
-    #0f1840 100%
+    #b9e6ff 0%,
+    #69b9f0 30%,
+    #327dc8 60%,
+    #0a234b 100%
   );
 }
 
 .palette-yellow {
   background: radial-gradient(
     circle,
-    #dfbc0f 0%,
-    #cfac0f 30%,
-    #906230 60%,
-    #403808 100%
+    #fffa96 0%,
+    #f5d246 30%,
+    #c8a023 60%,
+    #46320a 100%
   );
 }
 
 .palette-red {
   background: radial-gradient(
     circle,
-    #df9b0f 0%,
-    #cf8b0f 30%,
-    #903030 60%,
-    #400f0f 100%
+    #ffc3b9 0%,
+    #f07d64 30%,
+    #c84132 60%,
+    #460f12 100%
+  );
+}
+
+.palette-purple {
+  background: radial-gradient(
+    circle,
+    #e6d2ff 0%,
+    #be96eb 30%,
+    #915ac3 60%,
+    #2d1646 100%
+  );
+}
+
+.palette-cyan {
+  background: radial-gradient(
+    circle,
+    #b4faff 0%,
+    #6edce6 30%,
+    #32afb4 60%,
+    #0a373c 100%
+  );
+}
+
+.palette-orange {
+  background: radial-gradient(
+    circle,
+    #ffe1b4 0%,
+    #ffb464 30%,
+    #e67d28 60%,
+    #552808 100%
+  );
+}
+
+.palette-pink {
+  background: radial-gradient(
+    circle,
+    #ffdce6 0%,
+    #ffaac8 30%,
+    #eb6496 60%,
+    #5a1932 100%
   );
 }
