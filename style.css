@@ -4,17 +4,121 @@
   box-sizing: border-box;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #3d3434;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
 }
 
-#canvas{
-  width: 550px;
-  height: 550px;
+#matrixCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #000;
+}
+
+/* Container principal pour la caméra et les boutons */
+.camera-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#canvas {
   border: 5px solid #9e8686;
   background-color: #6a6a6a;
+}
 
+/* Conteneur des boutons de palette - positionnés en haut à gauche */
+.palette-buttons {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  top: -10px;
+  left: 10px;
+}
+
+/* Style de base des boutons - maintenant ronds */
+.palette-btn {
+  width: 25px;
+  height: 25px;
+  border: 5px solid #9e8686;
+  background-color: #6a6a6a;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.palette-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  border-color: #ffffff;
+  border-width: 3px;
+}
+
+.palette-btn:active {
+  transform: scale(1.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.palette-btn.active {
+  border-color: #ffff00;
+  border-width: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+  transform: scale(1.15);
+}
+
+/* Gradients radiaux pour les boutons ronds */
+.palette-green {
+  background: radial-gradient(
+    circle,
+    #bee418 0%,
+    #8bac0f 30%,
+    #306230 60%,
+    #0f380f 100%
+  );
+}
+
+.palette-blue {
+  background: radial-gradient(
+    circle,
+    #9bb0df 0%,
+    #8ba0cf 30%,
+    #306290 60%,
+    #0f1840 100%
+  );
+}
+
+.palette-yellow {
+  background: radial-gradient(
+    circle,
+    #dfbc0f 0%,
+    #cfac0f 30%,
+    #906230 60%,
+    #403808 100%
+  );
+}
+
+.palette-red {
+  background: radial-gradient(
+    circle,
+    #df9b0f 0%,
+    #cf8b0f 30%,
+    #903030 60%,
+    #400f0f 100%
+  );
 }

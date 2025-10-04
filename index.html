@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <!-- Creer une div de reference -->
-    <canvas id="canvas"></canvas>
+  </head>
+  <body>
+    <!-- Canvas pour l'effet Matrix en arrière-plan -->
+    <canvas id="matrixCanvas"></canvas>
 
-</body>
-<script src="script.js"></script>
+    <!-- Container principal pour la caméra et les boutons -->
+    <div class="camera-container">
+      <!-- Boutons de sélection de palette (en haut à gauche) -->
+      <div class="palette-buttons">
+        <button
+          id="palette-green"
+          class="palette-btn palette-green"
+          data-palette="green"
+          title="Palette Verte (Game Boy Original)"
+        ></button>
+        <button
+          id="palette-blue"
+          class="palette-btn palette-blue"
+          data-palette="blue"
+          title="Palette Bleue"
+        ></button>
+        <button
+          id="palette-yellow"
+          class="palette-btn palette-yellow"
+          data-palette="yellow"
+          title="Palette Jaune"
+        ></button>
+        <button
+          id="palette-red"
+          class="palette-btn palette-red"
+          data-palette="red"
+          title="Palette Rouge"
+        ></button>
+      </div>
+
+      <!-- Canvas de la caméra Game Boy -->
+      <canvas id="canvas"></canvas>
+    </div>
+  </body>
+  <script type="module" src="script.js"></script>
 </html>
